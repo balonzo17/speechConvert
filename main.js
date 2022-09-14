@@ -1,27 +1,28 @@
-sppechbtn.addEventListener('click', (e) => {
+speechbtn.addEventListener('click', (e) => {
     e.preventDefault()
     if (textarea.value = '') {
         if (!synth.speaking) {
-            texttospeech(textarea.value)
+         texttospeech(textarea.value)
         }
         if (textarea.value.length > 80) {
             if (isSpeaking) {
                 synth.resume()
                 isSpeaking = false
-                speechbtn.innerhtml = 'Pause Speech'
+                speechbtn.innerHTML = 'Pause Speech'
             } else {
                 synth.pause()
                 isSpeaking = true
-                sppechbtn.innerhtml = "Resume Speech"
+                speechbtn.innerHTML = "Resume Speech"
             }
             setInterval(() => {
                 if (!synth.speaking && !isSpeaking) {
                     isSpeaking = true
-                    speechbtn.innerhtml = 'Convert To Speech'
+                    speechbtn.innerHTML = 'Convert To Speech'
                 }
             })
+        }   else {
+            speechbtn.innerHTML = 'Convert To Speech'
         }
 
-        }
     }
-)
+})
